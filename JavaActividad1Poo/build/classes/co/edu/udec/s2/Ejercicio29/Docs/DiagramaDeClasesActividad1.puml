@@ -1,0 +1,42 @@
+@startuml
+class Gimnasio{
+- String nombre;
+- String ubicacion;
+- String numeroMaquinas;
+}
+
+class Usuario{
+- int Id;
+- String nombre;
+- String telefono;
+- int edad;
+}
+
+class Entrenador{
+- String nombre;
+- String experiencia
+- int añosExperiencia;
+}
+
+class Rutina{
+- String nombre;
+- int duracion;
+- int nivel;
+}
+
+class Ejercicio{
+- String nombre;
+- int repeticiones;
+- int series;
+}
+
+'Relaciones
+
+Gimnasio "1" -- "*" Usuario : "tener"
+Entrenador "1" -- "*" Rutina : "crear"
+Rutina "1" -- "*" Ejercicio : "contener"
+Usuario "1" -- "*" Rutina : "reaizar"
+Usuario "*" -- "1" Entrenador : "es entrenado"
+Entrenador "1" -- "*" Gimnasio : "pertenecer"
+
+@enduml
